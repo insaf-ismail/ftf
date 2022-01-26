@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('clone repo') {
             steps { 
-               git credentialsID: 'git_credentialsID', url='git@github.com:insaf-ismail/ftf.git'
+               git sh'git url'
             }
         }
       stage('build image') {
