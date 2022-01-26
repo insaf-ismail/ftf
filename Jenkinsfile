@@ -8,12 +8,12 @@ pipeline {
         }
       stage('build image') {
             steps { 
-                echo 'sh "docker build -t insafdocker/ftf:latest"'
+                sh "docker build -t insafdocker/ftf:latest"
             }
-        }
+      }
       stage('deploiment') {
             steps { 
-                echo 'Welcome to LambdaTest'
+                sh 'here put the docker deployment'
             }
         }
     }
