@@ -3,17 +3,21 @@ pipeline {
     stages {
         stage('clone repo') {
             steps { 
-               git sh'git url'
+             
+               sh"cd ftf"
             }
         }
       stage('build image') {
             steps { 
-                sh "docker build -t insafdocker/ftf:latest"
+                 sh"cd ftf"
+                 sh "ls"
+                 sh "cd ftf"
+                sh "cd ftf && sudo docker build -t insafdocker/ftf:latest ."
             }
       }
       stage('deploiment') {
             steps { 
-                sh 'here put the docker deployment'
+                sh 'sudo docker run -p 8181:8181 -d insafdocker/ftf:latest'
             }
         }
     }
